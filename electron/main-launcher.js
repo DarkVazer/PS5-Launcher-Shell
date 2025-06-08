@@ -22,8 +22,6 @@ function createLauncherWindow() {
     win.loadFile(path.join(__dirname, '../dist/launcher.html'));
   }
 
-  win.webContents.openDevTools();
-
   return win;
 }
 
