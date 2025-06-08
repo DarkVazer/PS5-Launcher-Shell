@@ -2,7 +2,8 @@
 
 Лаунчер и интерфейс в стиле PlayStation 5 для управления играми. На данный момент поддерживает запуск лаунчера и отображение оболочки PS5. Проект разработан с использованием React, Tailwind CSS и Electron.
 
-![Uploading prew.gif…]()
+
+![prew](https://github.com/user-attachments/assets/d87e04dd-0135-4304-927d-b3f33a71b131)
 
 
 ## Скачать готовую версию
