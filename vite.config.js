@@ -4,9 +4,12 @@ import path from 'path';
 
 export default defineConfig({
   plugins: [react()],
+  base: './', // Относительные пути для Electron
   build: {
     minify: 'esbuild',
     cssMinify: true,
+    outDir: 'dist', // Папка сборки
+    assetsDir: 'assets', // Папка для JS/CSS
     rollupOptions: {
       input: {
         main: path.resolve(__dirname, 'index.html'),
@@ -23,6 +26,11 @@ export default defineConfig({
           ],
         },
       },
+    },
+  },
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
     },
   },
 });
