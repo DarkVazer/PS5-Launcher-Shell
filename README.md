@@ -54,7 +54,7 @@
 ```
 PS5-Launcher-Shell/
 ├── src/
-│   ├── assets/
+│   ├── assets/...
 │   ├── components/
 │   │   ├── GameTiles.jsx
 │   │   ├── Header.jsx
