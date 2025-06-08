@@ -59,6 +59,12 @@ body {
   box-shadow: none;
   border: none;
   margin-top: 2vw;
+  transition: opacity 0.3s ease;
+}
+
+.main-header.hidden {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .header-content {
@@ -178,6 +184,12 @@ body {
 .game-tiles-wrapper {
   width: 100vw;
   margin-top: 3vw;
+  transition: opacity 0.3s ease;
+}
+
+.game-tiles-wrapper.hidden {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .game-tiles {
@@ -215,11 +227,11 @@ body {
 
 .game-tile.active {
   width: 9.43vw;
-  height: 9.32vw;
+  height: 9.43vw;
   min-width: 9.43vw;
-  min-height: 9.32vw;
+  min-height: 9.43vw;
   max-width: 9.43vw;
-  max-height: 9.32vw;
+  max-height: 9.43vw;
   border-radius: 1.51vw;
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
   z-index: 10;
@@ -243,6 +255,12 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
+  transition: opacity 0.3s ease;
+}
+
+.must-see-section.hidden {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .must-see-title {
@@ -325,4 +343,130 @@ body {
 .tile-more-games {
   width: 2.55vw;
   height: 2.6vw;
+}
+
+/* Game Info Section */
+.game-info-section {
+  width: 100vw;
+  max-width: 1920px;
+  margin: 0 auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 185px;
+  padding-left: 204px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: bottom 0.3s ease;
+}
+
+.game-info-section.active {
+  bottom: 205px; /* Приподнимается при активации кнопки "Играть" */
+}
+
+.game-logo {
+  max-width: 200px;
+  max-height: 100px;
+  object-fit: contain;
+}
+
+.game-description {
+  margin-top: 48px;
+  color: #FFF;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  letter-spacing: 0.18px;
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 48px;
+}
+
+.play-button {
+  width: 371px;
+  height: 78px;
+  background: rgba(0, 0, 0, 0.14);
+  color: #FFF;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 0.18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  border-radius: 61px;
+  transition: box-shadow 0.3s ease;
+}
+
+.play-button.active {
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.more-button {
+  width: 78px;
+  height: 78px;
+  background: rgba(0, 0, 0, 0.14);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+}
+
+.dots {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  background: #FFF;
+  border-radius: 50%;
+}
+
+.game-tile-container {
+  position: absolute;
+  top: 25px;
+  left: 71px;
+  display: flex;
+  align-items: center;
+}
+
+.game-tile-moved {
+  width: 5.52vw;
+  height: 5.52vw;
+  border-radius: 0.83vw;
+  background: rgba(0, 0, 0, 0.7);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: transform 0.5s ease-in-out, top 0.5s ease-in-out, left 0.5s ease-in-out;
+}
+
+.game-title {
+  color: #FFF;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 0.18px;
+  margin-left: 25px;
 }
