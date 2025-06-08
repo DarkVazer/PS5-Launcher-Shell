@@ -5,6 +5,9 @@ import MustSeeSection from './components/MustSeeSection.jsx';
 import useNavigationStore from './store.js';
 import './App.css';
 
+// Import the video asset statically
+import BackgroundVideo from '/assets/LoopNoParticles.webm';
+
 function App() {
   const { currentSection, currentIndex, lastGameTileIndex, setNavigation } = useNavigationStore();
 
@@ -49,14 +52,14 @@ function App() {
   return (
     <div className="app-root">
       <div className="video-container">
-        <video 
+        <video
           autoPlay
           loop
           muted
           playsInline
           className="video-background"
         >
-          <source src="/assets/LoopNoParticles.webm" type="video/webm" />
+          <source src={BackgroundVideo} type="video/webm" />
         </video>
       </div>
       <svg width="0" height="0">
