@@ -18,7 +18,6 @@ function createLauncherWindow() {
 
   if (process.env.NODE_ENV === 'development') {
     win.loadURL('http://localhost:5173/launcher.html');
-    win.webContents.openDevTools(); // Для отладки
   } else {
     const launcherPath = path.join(__dirname, '../dist/launcher.html');
     console.log('Loading launcher:', launcherPath);
@@ -49,7 +48,6 @@ function createShellWindow() {
 
   if (process.env.NODE_ENV === 'development') {
     shellWindow.loadURL('http://localhost:5173');
-    shellWindow.webContents.openDevTools(); // Для отладки
   } else {
     const indexPath = path.join(__dirname, '../dist/index.html');
     console.log('Loading index:', indexPath);
