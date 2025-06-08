@@ -1,19 +1,31 @@
 import { memo, useCallback } from 'react';
 import TileWaveEffect from './TileWaveEffect.jsx';
 
+// Import assets statically
+import StoreIcon from '/assets/Store.svg';
+import ExplorerIcon from '/assets/Explorer.svg';
+import MoreGamesIcon from '/assets/More_games.svg';
+import Game2k22 from '/assets/2k22.png';
+import Apex from '/assets/apex.png';
+import Astro from '/assets/astro.png';
+import Fortnite from '/assets/fortnite.png';
+import Ratchet from '/assets/ratchet.png';
+import Rocket from '/assets/rocket.png';
+import Pacman from '/assets/pacman.png';
+
 function GameTiles({ currentSection, currentIndex, setNavigation, lastGameTileOffset }) {
   const tiles = [
-    { type: 'store', img: '/assets/Store.svg', className: 'tile-store w-[2.45vw] h-[3.13vw]' },
-    { type: 'explorer', img: '/assets/Explorer.svg', className: 'tile-explorer w-[2.4vw] h-[2.4vw]' },
-    { background: '/assets/2k22.png' },
-    { background: '/assets/apex.png' },
-    { background: '/assets/astro.png' },
-    { background: '/assets/fortnite.png' },
-    { background: '/assets/ratchet.png' },
-    { background: '/assets/rocket.png' },
-    { background: '/assets/pacman.png' },
-    { background: '/assets/2k22.png' },
-    { type: 'more_games', img: '/assets/More_games.svg', className: 'tile-more-games w-[2.55vw] h-[2.6vw]' },
+    { type: 'store', img: StoreIcon, className: 'tile-store w-[2.45vw] h-[3.13vw]' },
+    { type: 'explorer', img: ExplorerIcon, className: 'tile-explorer w-[2.4vw] h-[2.4vw]' },
+    { background: Game2k22 },
+    { background: Apex },
+    { background: Astro },
+    { background: Fortnite },
+    { background: Ratchet },
+    { background: Rocket },
+    { background: Pacman },
+    { background: Game2k22 },
+    { type: 'more_games', img: MoreGamesIcon, className: 'tile-more-games w-[2.55vw] h-[2.6vw]' },
   ];
 
   const handleClick = useCallback((index) => {
