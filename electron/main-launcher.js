@@ -18,8 +18,13 @@ function createLauncherWindow() {
 
   if (process.env.NODE_ENV === 'development') {
     win.loadURL('http://localhost:5173/launcher.html');
+    win.webContents.openDevTools(); // Для отладки
   } else {
-    win.loadFile(path.join(__dirname, '../dist/launcher.html'));
+    const launcherPath = path.join(__dirname, '../dist/launcher.html');
+    console.log('Loading launcher:', launcherPath);
+    win.loadFile(launcherPath).catch((err) => {
+      console.error('Failed to load launcher.html:', err);
+    });
   }
 
   return win;
@@ -44,8 +49,13 @@ function createShellWindow() {
 
   if (process.env.NODE_ENV === 'development') {
     shellWindow.loadURL('http://localhost:5173');
+    shellWindow.webContents.openDevTools(); // Для отладки
   } else {
-    shellWindow.loadFile(path.join(__dirname, '../dist/index.html'));
+    const indexPath = path.join(__dirname, '../dist/index.html');
+    console.log('Loading index:', indexPath);
+    shellWindow.loadFile(indexPath).catch((err) => {
+      console.error('Failed to load index.html:', err);
+    });
   }
 
   shellWindow.on('minimize', (event) => {
@@ -74,7 +84,8 @@ app.on('window-all-closed', () => {
 });
 
 ipcMain.handle('get-games', () => {
-  const gamesPath = path.join(__dirname, '../games.json');
+  const gamesPath = path.join(app.getPath('userData'), 'games.json');
+  console.log('Reading games.json:', gamesPath);
   if (!fs.existsSync(gamesPath)) {
     fs.writeFileSync(gamesPath, JSON.stringify([]));
   }
@@ -82,18 +93,24 @@ ipcMain.handle('get-games', () => {
 });
 
 ipcMain.handle('add-game', (event, game) => {
-  const gamesPath = path.join(__dirname, '../games.json');
-  const games = JSON.parse(fs.readFileSync(gamesPath));
+  const gamesPath = path.join(app.getPath('userData'), 'games.json');
+  console.log('Writing to games.json:', gamesPath);
+  let games = [];
+  if (fs.existsSync(gamesPath)) {
+    games = JSON.parse(fs.readFileSync(gamesPath));
+  }
   games.push(game);
   fs.writeFileSync(gamesPath, JSON.stringify(games, null, 2));
   return games;
 });
 
-ipcMain.handle('launch-shell', () => {
+ipcMain.on('launch-shell', () => {
+  console.log('Launching shell');
   createShellWindow();
 });
 
-ipcMain.handle('launch-game', (event, executablePath) => {
+ipcMain.on('launch-game', (event, executablePath) => {
+  console.log('Launching game:', executablePath);
   shell.openPath(executablePath).catch((err) => {
     console.error('Error launching game:', err);
   });
