@@ -54,6 +54,7 @@
 ```
 PS5-Launcher-Shell/
 ├── src/
+│   ├── assets/
 │   ├── components/
 │   │   ├── GameTiles.jsx
 │   │   ├── Header.jsx
@@ -67,12 +68,17 @@ PS5-Launcher-Shell/
 │   ├── main.jsx
 │   └── store.js
 ├── public/
-│   ├── assets/
-│   │   ├── LoopNoParticles.webm
-│   │   ├── Store.svg
-│   │   ├── Explorer.svg
-│   │   └── ...
-│   └── index.html
+│   └── assets/
+│       ├── LoopNoParticles.webm
+│       ├── Store.svg
+│       ├── Explorer.svg
+│       └── ...
+├── electron/
+│   ├── main-launcher.js
+│   ├── main.js
+│   └── preload.js
+├── launcher.html
+├── index.html
 ├── .gitignore
 ├── LICENSE
 ├── README.md
