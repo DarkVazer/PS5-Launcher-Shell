@@ -1,6 +1,11 @@
 import { useEffect, useState, memo } from 'react';
 import TileWaveEffect from './TileWaveEffect.jsx';
 
+// Импортируем ассеты
+import SearchIcon from '/assets/Search.svg';
+import SettingsIcon from '/assets/settings.svg';
+import AvatarIcon from '/assets/avatar.svg';
+
 function Header({ currentSection, currentIndex, setNavigation }) {
   const [time, setTime] = useState('');
 
@@ -95,7 +100,7 @@ function Header({ currentSection, currentIndex, setNavigation }) {
             data-section="header"
             onClick={() => handleClick(2)}
           >
-            <img src="/assets/Search.svg" alt="Поиск" className="w-full h-full object-contain" />
+            <img src={SearchIcon} alt="Поиск" className="w-full h-full object-contain" />
             {currentSection === 'header' && currentIndex === 2 && <TileWaveEffect />}
             {renderBorderSvg(currentSection === 'header' && currentIndex === 2, true)}
           </button>
@@ -108,7 +113,7 @@ function Header({ currentSection, currentIndex, setNavigation }) {
             data-section="header"
             onClick={() => handleClick(3)}
           >
-            <img src="/assets/settings.svg" alt="Настройки" className="w-full h-full object-contain" />
+            <img src={SettingsIcon} alt="Настройки" className="w-full h-full object-contain" />
             {currentSection === 'header' && currentIndex === 3 && <TileWaveEffect />}
             {renderBorderSvg(currentSection === 'header' && currentIndex === 3, true)}
           </button>
@@ -120,7 +125,7 @@ function Header({ currentSection, currentIndex, setNavigation }) {
             data-section="header"
             onClick={() => handleClick(4)}
           >
-            <img src="/assets/avatar.svg" alt="Avatar" className="w-full h-full object-cover rounded-full" />
+            <img src={AvatarIcon} alt="Avatar" className="w-full h-full object-cover rounded-full" />
             <span className="avatar-status absolute right-0 bottom-0 w-[0.73vw] h-[0.73vw] bg-[#3FCF4A] border-2 border-[#BFBFBF] rounded-full"></span>
             {currentSection === 'header' && currentIndex === 4 && <TileWaveEffect />}
             {renderBorderSvg(currentSection === 'header' && currentIndex === 4, true)}
