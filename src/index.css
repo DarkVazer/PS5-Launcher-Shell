@@ -1,0 +1,328 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Reset styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none; /* Prevent text selection */
+}
+
+/* Main layout and background */
+html, body {
+  height: 100%;
+  min-height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: 'Open Sans', sans-serif;
+  background: #000 url('') no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+}
+
+body {
+  overflow: hidden;
+}
+
+.app-root {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* Video background */
+.video-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.video-background {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Header */
+.main-header {
+  height: 60px;
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  margin-top: 2vw;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 0 4.7vw;
+}
+
+.header-buttons {
+  display: flex;
+  align-items: center;
+  gap: 4vw;
+}
+
+.header-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.875vw;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.18px;
+  padding: 0 0.5vw;
+  border: none;
+  background: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.header-btn:first-child {
+  height: 2.55vw;
+  font-weight: 600;
+  color: #FBFBFB;
+}
+
+.header-btn:last-child {
+  height: 2.55vw;
+  font-weight: 300;
+  color: #BFBFBF;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.header-time {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.875vw;
+  color: #FFF;
+  font-weight: 300;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.1px;
+  margin-right: 3.44vw;
+}
+
+.header-avatar {
+  margin-right: 4.95vw;
+  width: 2.76vw;
+  height: 2.76vw;
+  border-radius: 50%;
+  background: #222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 0 0 2px #BFBFBF;
+  background-color: #232323;
+}
+
+.header-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.header-icon {
+  width: 1.77vw;
+  height: 1.77vw;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-right: 3.44vw;
+}
+
+.header-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.avatar-status {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 0.73vw;
+  height: 0.73vw;
+  background: #3FCF4A;
+  border: 2px solid #BFBFBF;
+  border-radius: 50%;
+  display: block;
+}
+
+/* Game tiles */
+.game-tiles-wrapper {
+  width: 100vw;
+  margin-top: 3vw;
+}
+
+.game-tiles {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 0.52vw;
+  padding-left: 9.7vw;
+  padding-right: 23.96vw;
+  white-space: nowrap;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.game-tile {
+  width: 5.52vw;
+  height: 5.52vw;
+  min-width: 5.52vw;
+  min-height: 5.52vw;
+  max-width: 5.52vw;
+  max-height: 5.52vw;
+  border-radius: 0.83vw;
+  background: rgba(0,0,0,0.7);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  will-change: width, height, min-width, min-height, max-width, max-height, border-radius, box-shadow;
+  transition: transform 0.3s ease, width 0.3s ease-in-out, height 0.3s ease-in-out, min-width 0.3s ease-in-out, min-height 0.3s ease-in-out, max-width 0.3s ease-in-out, max-height 0.3s ease-in-out, border-radius 0.3s ease-in-out, box-shadow 0.3s ease;
+}
+
+.game-tile.active {
+  width: 9.43vw;
+  height: 9.32vw;
+  min-width: 9.43vw;
+  min-height: 9.32vw;
+  max-width: 9.43vw;
+  max-height: 9.32vw;
+  border-radius: 1.51vw;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  z-index: 10;
+  background: rgba(0,0,0,0.7);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.game-tile::before {
+  content: none;
+}
+
+/* Must-see section */
+.must-see-section {
+  width: 100vw;
+  max-width: 1920px;
+  margin: 0 auto;
+  margin-bottom: 3.44vw;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.must-see-title {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 2vw;
+  font-weight: 600;
+  color: #fff;
+  margin-left: 9.48vw;
+  margin-bottom: 1.25vw;
+}
+
+.must-see-tiles-wrapper {
+  width: 100vw;
+}
+
+.must-see-tiles {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1.25vw;
+  padding-left: 9.48vw;
+  padding-right: 3.96vw;
+  white-space: nowrap;
+}
+
+.must-see-tile {
+  width: 13.39vw;
+  height: 6.67vw;
+  min-width: 13.39vw;
+  min-height: 6.67vw;
+  max-width: 13.39vw;
+  max-height: 6.67vw;
+  border-radius: 0;
+  background: rgba(0,0,0,0.7);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: box-shadow 0.3s ease;
+}
+
+.must-see-tile.active {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  background: rgba(0,0,0,0.7);
+}
+
+/* Border SVG styles */
+.border-svg {
+  position: absolute;
+  display: none;
+  transition: all 0.3s ease;
+}
+
+.active .border-svg {
+  display: block;
+}
+
+@keyframes tile-glow {
+  0% { box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.1); }
+  50% { box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.15); }
+  100% { box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.1); }
+}
+
+.tile-svg {
+  display: block;
+  margin: 0 auto;
+}
+
+.tile-store {
+  width: 2.45vw;
+  height: 3.13vw;
+}
+
+.tile-explorer {
+  width: 2.4vw;
+  height: 2.4vw;
+}
+
+.tile-more-games {
+  width: 2.55vw;
+  height: 2.6vw;
+}
