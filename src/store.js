@@ -5,12 +5,17 @@ const useNavigationStore = create((set) => ({
   currentIndex: 0,
   lastGameTileIndex: 0,
   lastGameTileOffset: 0,
-  setNavigation: (section, index) =>
+  activeGameTileIndex: 0,
+  setNavigation: (section, index, activeGameTileIndex) =>
     set((state) => {
-      const newState = { currentSection: section, currentIndex: index };
-      if (state.currentSection === 'game-tiles') {
-        newState.lastGameTileIndex = state.currentIndex;
-        newState.lastGameTileOffset = state.currentIndex * (5.2 + 0.5);
+      const newState = { 
+        currentSection: section, 
+        currentIndex: index,
+        activeGameTileIndex: activeGameTileIndex !== undefined ? activeGameTileIndex : state.activeGameTileIndex 
+      };
+      if (state.currentSection === 'game-tiles' && section === 'game-tiles') {
+        newState.lastGameTileIndex = index;
+        newState.lastGameTileOffset = index * (5.2 + 0.5);
       }
       return newState;
     }),
