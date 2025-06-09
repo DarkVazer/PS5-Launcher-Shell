@@ -1,7 +1,7 @@
 {
   "name": "ps5-interface",
   "private": true,
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "electron/main-launcher.js",
   "scripts": {
     "dev": "vite",
