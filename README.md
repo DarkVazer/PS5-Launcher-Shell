@@ -7,7 +7,7 @@
 
 
 ## Скачать готовую версию
-[Скачать для Windows](https://github.com/DarkVazer/PS5-Launcher-Shell/releases/tag/v0.0.1)
+[Скачать для Windows](https://github.com/DarkVazer/PS5-Launcher-Shell/releases/tag/latest)
 
 ## Возможности
 - Интерфейс в стиле PS5 с плавной навигацией и анимациями (например, tile-glow, градиентные границы).
