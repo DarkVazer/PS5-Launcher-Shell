@@ -1,0 +1,66 @@
+{
+  "name": "ps5-interface",
+  "private": true,
+  "version": "0.0.2",
+  "main": "electron/main-launcher.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "electron": "cross-env NODE_ENV=development electron .",
+    "start": "concurrently \"npm run dev\" \"wait-on http://localhost:5173 && npm run electron\"",
+    "start-launcher": "concurrently \"npm run dev\" \"wait-on http://localhost:5173 && cross-env NODE_ENV=development electron . --launcher\"",
+    "package": "electron-builder"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "uuid": "^11.1.0",
+    "zustand": "^5.0.5"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.2",
+    "autoprefixer": "^10.4.20",
+    "concurrently": "^8.2.2",
+    "cross-env": "^7.0.3",
+    "electron": "^31.3.1",
+    "electron-builder": "^24.13.3",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.10",
+    "vite": "^5.4.8",
+    "wait-on": "^7.2.0"
+  },
+  "build": {
+    "appId": "com.ps5interface.app",
+    "productName": "PS5 Interface",
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "launcher.html",
+      "index.html"
+    ],
+    "extraResources": [
+      {
+        "from": "public/assets/",
+        "to": "assets/",
+        "filter": [
+          "**/*"
+        ]
+      },
+      "games.json"
+    ],
+    "directories": {
+      "output": "dist",
+      "buildResources": "electron"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "mac": {
+      "target": "dmg"
+    },
+    "linux": {
+      "target": "AppImage"
+    },
+    "asar": true
+  }
+}
